@@ -1,0 +1,26 @@
+<h1>
+  Resumen
+</h1>
+
+<hr>
+
+<mat-card>
+    <mat-card-title>Datos personales</mat-card-title>
+    <app-form-datos-personales [datos] = "datos" ></app-form-datos-personales>
+</mat-card>
+
+
+<mat-card>
+  <mat-card-title>Datos Vehiculo</mat-card-title>
+  <app-form-datos-vehiculo [datos] = "datosVehiculoTmp" ></app-form-datos-vehiculo>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Cobertura Seleccionada</mat-card-title>
+  <mat-card-content *ngIf="coberturaTmp">
+     <h2> Titulo: {{coberturaTmp.titulo }} </h2>
+    <p> Descripcion: {{ coberturaTmp.descripcion}} </p>
+    <p> Franquicia:  {{coberturaTmp.franquicia}} </p> 
+    
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,7 @@
+::ng-deep mat-toolbar{
+    justify-content: space-around;
+    background: #2258d5 !important;
+}
+::ng-deep mat-toolbar > img{
+    width: 15%;
+}

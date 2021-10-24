@@ -1,0 +1,129 @@
+<mat-card class="mat-card-container-form">
+  <form [formGroup]="personalForm" class="example-form">
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>DNI</mat-label>
+            <input id="dni" formControlName="dni" matInput required>
+          </mat-form-field>
+          <mat-error *ngIf="isValidField('dni')">
+            {{ getErrorMessage('dni') }}
+          </mat-error>
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input formControlName="apellido" matInput required>
+          </mat-form-field>
+          <mat-error *ngIf="isValidField('apellido')">
+            {{ getErrorMessage('apellido') }}
+          </mat-error>
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input formControlName="nombre" matInput required>
+          </mat-form-field>
+          <mat-error *ngIf="isValidField('nombre')">
+            {{ getErrorMessage('nombre') }}
+          </mat-error>
+        </td>
+      </tr>
+    </table>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input formControlName="mail" type="email" placeholder="Ex. pat@example.com" matInput>
+          </mat-form-field>
+          <mat-error *ngIf="isValidField('mail')">
+            {{ getErrorMessage('mail') }}
+          </mat-error>
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Celular</mat-label>
+            <input formControlName="celular" matInput>
+          </mat-form-field>
+          <mat-error *ngIf="isValidField('celular')">
+            {{ getErrorMessage('celular') }}
+          </mat-error>
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Telefono</mat-label>
+            <input formControlName="telefono" matInput>
+          </mat-form-field>
+          <mat-error *ngIf="isValidField('telefono')">
+            {{ getErrorMessage('telefono') }}
+          </mat-error>
+        </td>
+      </tr>
+    </table>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Provincia</mat-label>
+            <mat-select formControlName="provincia">
+              <mat-option (click)="selectProvincia(provincia.id)" [value]="provincia.nombre"
+                *ngFor="let provincia of provincias">
+                {{ provincia.nombre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Ciudad</mat-label>
+            <mat-select formControlName="ciudad">
+              <mat-option [disabled]="municipios.length == 0" [value]="municipio.nombre"
+                *ngFor="let municipio of municipios">
+                {{ municipio.nombre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Domicilio</mat-label>
+            <input formControlName="domicilio" matInput required>
+          </mat-form-field>
+          <mat-error *ngIf="isValidField('domicilio')">
+            {{ getErrorMessage('domicilio') }}
+          </mat-error>
+        </td>
+      </tr>
+    </table>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Usuario</mat-label>
+            <input #usuario formControlName="usuario" matInput>
+          </mat-form-field>
+          <mat-error *ngIf="isValidField('usuario')">
+            {{ getErrorMessage('usuario') }}
+          </mat-error>
+          <mat-error *ngIf="usuarioExiste">
+            Usuario ya existe!
+          </mat-error>
+        </td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input formControlName="contraseña" matInput>
+          </mat-form-field>
+          <!-- <mat-password-strength [password]="personalForm.controls.['contraseña'].value"> </mat-password-strength> -->
+
+        </td>
+
+
+      </tr>
+    </table>
+
+
+  </form>
+</mat-card>

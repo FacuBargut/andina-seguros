@@ -1,0 +1,15 @@
+::ng-deep .mat-tab-label-content{
+    color: black;
+}
+
+::ng-deep mat-card.mat-card.mat-focus-indicator{
+    background-color: #ffff;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#mat-card-container-tabs{
+    height: 80vh;
+    overflow: hidden;
+    overflow: auto;
+}

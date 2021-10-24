@@ -1,0 +1,48 @@
+<mat-card class="mat-card-container-form">
+  <form [formGroup]="vehicleForm" class="example-form">
+    
+    
+    
+          <mat-form-field appearance="fill">
+            <mat-label>Marca</mat-label>
+            <mat-select (selectionChange)="getVehicleInformation()" formControlName="marca">
+              <mat-option [value]="marca.codigo" *ngFor="let marca of marcas">
+                {{ marca.desc }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+        
+          <mat-form-field appearance="fill">
+            <mat-label>Año</mat-label>
+            <mat-select (selectionChange)="getVehicleInformation()" formControlName="anio">
+              <mat-option [value]="year.value" *ngFor="let year of last20years">
+                {{ year.value }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+         
+          <mat-form-field appearance="fill">
+            <mat-label>Modelo</mat-label>
+            <mat-select (selectionChange)="getVehicleInformation()" formControlName="modelo">
+              <mat-option [value]="modelo" *ngFor="let modelo of modelos">
+                {{ modelo }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+        
+          <mat-form-field appearance="fill">
+            <mat-label>Version</mat-label>
+            <mat-select formControlName="version">
+              <mat-option [value]="version.desc" *ngFor="let version of versiones">
+                {{ version.desc }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+      
+    
+  </form>
+</mat-card>

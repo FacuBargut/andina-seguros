@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <app-main (onInfo)="handleInfo($event)"
+              [moveForm]="moveForm"
+    ></app-main>
+</div>
+<app-footer 
+            [subject]="subject"
+            (instruccion)="handleForm($event)"
+></app-footer>

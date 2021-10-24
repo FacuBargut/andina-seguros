@@ -1,0 +1,11 @@
+ .container {
+    /* padding-top: 2%;
+    padding-bottom: 2%; */
+    height: calc(100% - 112px);
+}
+
+@media (min-width: 600px) {
+    .container {
+        height: calc(100% - 128px);
+    }
+} 

@@ -1,0 +1,6 @@
+<mat-toolbar>
+    <button (click)="previousForm()"  [disabled] ="!backButton" mat-raised-button color="warn">Atras</button>
+    <button *ngIf="!lastForm" (click)="nextForm()"  [disabled] ="!nextButton" mat-raised-button color="primary">Siguiente</button>
+    <button id="btnSuccess" *ngIf="lastForm" (click)="okButton()" mat-raised-button>OK</button>
+</mat-toolbar>
+

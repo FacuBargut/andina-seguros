@@ -1,0 +1,67 @@
+
+  <!-- <mat-form-field>
+    <mat-label>Select Type</mat-label>
+    <mat-select [(ngModel)]="displayType" (ngModelChange)="onChange(displayType)">
+      <mat-option *ngFor="let type of selectType" [value]="type.value">
+        {{type.text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field> -->
+  
+    <mat-table [formGroup]="coberturaForm" [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell  *matCellDef="let row">
+          <mat-checkbox formControlName="checkbox"  (click)="$event.stopPropagation()" (change)="selectHandler(row)"
+            [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="codigo">
+        <mat-header-cell *matHeaderCellDef> Codigo </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.codigoProducto}} </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="titulo">
+        <mat-header-cell *matHeaderCellDef> Titulo </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.titulo}} </mat-cell>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="descripcion">
+        <mat-header-cell *matHeaderCellDef> Descripcion </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.descripcion}} </mat-cell>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="franquicia">
+        <mat-header-cell *matHeaderCellDef> Franquicia </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.franquicia}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="costo">
+        <mat-header-cell *matHeaderCellDef> Costo </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.costo}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="puntaje">
+        <mat-header-cell *matHeaderCellDef> Puntaje </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.puntaje}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+
+      
+    </mat-table>
+  
+    <!-- <pre>
+    <h3>Selected :</h3>
+    {{selection.selected | json}}
+  </pre> -->

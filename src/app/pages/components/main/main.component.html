@@ -1,0 +1,25 @@
+<mat-card id="mat-card-container-tabs">
+    <mat-tab-group [selectedIndex]="selected.value"
+                   (selectedIndexChange)="selected.setValue($event)"
+                    mat-align-tabs="center"
+                    (selectedTabChange)="test($event)"
+                    >
+        <mat-tab [disabled]='true' label="Datos personales">
+             <app-form-datos-personales (index)="procesarIndex($event)"></app-form-datos-personales>
+        </mat-tab>
+        <mat-tab [disabled]='true' label="Datos vehículos"> 
+            <app-form-datos-vehiculo #formDatosVehiculo (index)="procesarIndex($event)"></app-form-datos-vehiculo>
+        </mat-tab>
+        <mat-tab [disabled]='true' label="Cobertura disponible"> 
+            <app-form-coberturas-disponibles (index)="procesarIndex($event)"></app-form-coberturas-disponibles>
+        </mat-tab>
+        <mat-tab [disabled]='true' label="Resumen"> 
+            <app-resumen 
+                        *ngIf="this.datosPersonales && this.datosVehiculo && this.coberturasDisponibles"
+                         [datosPersonales] = "FormDatosPersonales"
+                         [datosVehiculo] = "FormDatosVehiculo"
+                         [cobertura]="cobertura"
+            ></app-resumen>
+        </mat-tab>
+    </mat-tab-group>
+</mat-card>
